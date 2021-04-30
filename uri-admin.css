@@ -1,0 +1,30 @@
+.custom-welcome-panel {
+	background-color: #fff;
+	padding: 1rem 1.5rem;
+	margin: 2rem 1rem 2rem 0;
+}
+.welcome-cols .column {
+	margin-bottom: 1rem;
+}
+.custom-welcome-panel li {
+	list-style-type: disc;
+	margin-left: 1rem;
+}
+@media only screen and (min-width: 750px) {
+	.welcome-cols {
+		display: flex;
+		flex-direction: row;
+	}
+	.welcome-cols .column {
+		flex: 1;
+		margin-bottom: 0;
+		margin-right: 1%;
+	}
+}
+
+.uri-admin-wp-updates-footer {
+	border-top: 1px solid #f0f0f1;
+	color: #dcdcde;
+	margin: 12px -11px 0;
+	padding: 6px 12px 0;
+}
