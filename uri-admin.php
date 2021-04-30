@@ -24,8 +24,10 @@ add_filter( 'admin_email_check_interval', '__return_false' );
 remove_action( 'welcome_panel', 'wp_welcome_panel' );
 
 
+/**
+ * Load a custom stylesheet.
+ */
 function uri_admin_style() {	
-
 	if ( function_exists( 'get_plugin_data' ) ) {
 		$values = get_plugin_data( __FILE__, false );
 		$cache_buster = $values['Version'];
@@ -36,6 +38,7 @@ function uri_admin_style() {
   wp_enqueue_style( 'uri-admin-styles', plugins_url( 'uri-admin.css', __FILE__ ), [], $cache_buster );
 }
 add_action('admin_enqueue_scripts', 'uri_admin_style');
+
 
 /**
  * Override the default "Thank you for using WordPress admin footer".
@@ -76,7 +79,6 @@ function uri_admin_dashboard_widgets() {
 	// Save the sorted array back into the original metaboxes. 
 	$wp_meta_boxes['dashboard']['normal']['core'] = $sorted_dashboard;
 
-	
 }
 add_action('wp_dashboard_setup', 'uri_admin_dashboard_widgets');
 
