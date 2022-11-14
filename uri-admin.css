@@ -28,3 +28,14 @@
 	margin: 12px -11px 0;
 	padding: 6px 12px 0;
 }
+
+.custom-warning {
+	background-color: #fff;
+	padding: 1rem 1.5rem;
+	margin: 2rem 1rem 2rem 0;
+	border-left: rgba(238,210,2,0.74) 40px solid;
+}
+
+.notice-description {
+	font-size: 16px;
+}
