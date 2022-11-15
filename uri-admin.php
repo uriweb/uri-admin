@@ -1,9 +1,9 @@
 <?php
 /**
- * Plugin Name: URI Admin 
+ * Plugin Name: URI Admin
  * Plugin URI: https://www.uri.edu/wordpress/software/
  * Description: Customizations for the admin dashboard
- * Version: 1.0
+ * Version: 1.1
  * Author: URI Web Communications
  * Author URI: https://web.uri.edu/external-relations/contact-us/#web
  *
@@ -27,7 +27,7 @@ remove_action( 'welcome_panel', 'wp_welcome_panel' );
 /**
  * Load a custom stylesheet.
  */
-function uri_admin_style() {	
+function uri_admin_style() {
 	if ( function_exists( 'get_plugin_data' ) ) {
 		$values = get_plugin_data( __FILE__, false );
 		$cache_buster = $values['Version'];
@@ -63,12 +63,12 @@ function uri_admin_dashboard_widgets() {
 		NULL, // callback args
 		'normal', // context
 		'core' // priority
-	); 
+	);
 
-	// Get the regular dashboard widgets array 
+	// Get the regular dashboard widgets array
 	// (which already has our new widget but appended at the end).
 	$default_dashboard = $wp_meta_boxes['dashboard']['normal']['core'];
-	 
+
 	// Backup and delete our new dashboard widget from the end of the array.
 	$uri_widget_backup = array( 'uri_admin_dashboard_updates_feed' => $default_dashboard['uri_admin_dashboard_updates_feed'] );
 	unset( $default_dashboard['uri_admin_dashboard_updates_feed'] );
@@ -76,7 +76,7 @@ function uri_admin_dashboard_widgets() {
 	// Merge the two arrays together so our widget is at the beginning.
 	$sorted_dashboard = array_merge( $uri_widget_backup, $default_dashboard );
 
-	// Save the sorted array back into the original metaboxes. 
+	// Save the sorted array back into the original metaboxes.
 	$wp_meta_boxes['dashboard']['normal']['core'] = $sorted_dashboard;
 
 }
