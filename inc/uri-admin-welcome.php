@@ -1,8 +1,3 @@
-<div class="custom-warning postbox">
-<h2><?php _e( 'Notice: Content Freeze 11/28 - 11/29', 'uri' ); ?></h2>
-<p class="notice-description"><?php _e( 'Due to a scheduled server migration, there will be a content freeze from November 28 - 29. This means that any changes made to the website during this period will dissapear on November 30, and we ask that content editors plan accordingly.', 'uri' ); ?></p>
-</div>
-
 <div class="custom-welcome-panel postbox">
 
 	<h3><?php _e( 'You’re using URI WordPress.', 'uri' ); ?></h3>
