@@ -17,6 +17,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 	die( '-1' );
 }
 
+define( 'URI_ADMIN_DIR_PATH', plugin_dir_path( __FILE__ ) );
+
 // prevent the confirm admin email prompt from appearing
 add_filter( 'admin_email_check_interval', '__return_false' );
 
@@ -164,3 +166,7 @@ function uri_admin_has_admin_privilages() {
 	return $admin;
 
 }
+
+
+// Include settings
+include( URI_ADMIN_DIR_PATH . 'inc/uri-admin-settings.php' );

@@ -1,3 +1,16 @@
+<?php
+
+	if ( null != get_site_option( 'uri_admin_notification_title' ) || null != get_site_option( 'uri_admin_notification_message' ) ) {
+	?>
+		<div class="custom-notification postbox">
+			<h3><?php echo get_site_option( 'uri_admin_notification_title' ); ?></h3>
+			<p><?php echo get_site_option( 'uri_admin_notification_message' ); ?></p>
+		</div>
+	<?php
+	}
+
+?>
+
 <div class="custom-welcome-panel postbox">
 
 	<div class="welcome-banner"></div>
