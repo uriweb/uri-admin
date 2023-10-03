@@ -1,7 +1,24 @@
 .custom-welcome-panel {
-	background-color: #fff;
-	padding: 1rem 1.5rem;
+	background-color: #def1ff;
 	margin: 2rem 1rem 2rem 0;
+	border-color: #7cbeee;
+}
+.welcome-banner {
+	height: 3rem;
+	width: 100%;
+	background-image: url('img/banner.jpg');
+	background-repeat: no-repeat;
+	background-position: 0 0;
+	background-size: 100% auto;
+}
+.welcome-content {
+	padding: .5rem 1.5rem 1rem;
+}
+.welcome-content h3.header span {
+	opacity: .7;
+}
+.welcome-content .about-description {
+	max-width: 800px;
 }
 .welcome-cols .column {
 	margin-bottom: 1rem;
@@ -20,6 +37,23 @@
 		margin-bottom: 0;
 		margin-right: 1%;
 	}
+}
+
+.welcome-content hr {
+	height: 1px;
+	border: initial;
+	background: rgba(0,0,0,.1);
+	margin-bottom: 1rem;
+}
+
+.welcome-content .disclaimer p {
+	margin: 0;
+	font-size: 80%;
+	opacity: .7;
+}
+
+.welcome-content .disclaimer a {
+	color: inherit;
 }
 
 .uri-admin-wp-updates-footer {
