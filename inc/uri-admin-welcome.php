@@ -45,6 +45,14 @@
 				<li><?php printf( '<a href="%s" class="welcome-icon welcome-view-site">' . __( 'View your site', 'uri' ) . '</a>', home_url( '/' ) ); ?></li>
 			</div>
 
+			<div class="column">
+				<h4><?php _e( 'Using the media library', 'uri' ); ?></h4>
+				<ul>
+					<li><?php printf( '<a href="%s" class="welcome-icon welcome-images">' . __( 'Images', 'uri' ) . '</a>', 'https://www.uri.edu/wordpress/content-guide/images/' ); ?></li>
+					<li><?php printf( '<a href="%s" class="welcome-icon welcome-view-site">' . __( 'Documents', 'uri' ) . '</a>', 'https://www.uri.edu/wordpress/content-guide/documents/' ); ?></li>
+				</ul>
+			</div>
+
 			<?php if ( current_user_can( 'customize' ) ): ?>
 			<div class="column">
 				<h4><?php _e( 'Advanced tasks', 'uri' ); ?></h4>
