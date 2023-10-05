@@ -1,3 +1,17 @@
+<?php
+function custom_admin_notice() {
+    ?>
+    <div class="custom-notice notice-<?php _e( get_site_option( 'uri_admin_color' ), 'uri' )?> ">
+		<h2><?php _e( get_site_option( 'uri_admin_heading' ), 'uri' ); ?></h2>
+        <p><?php _e( get_site_option( 'uri_admin_content' ), 'uri' ); ?></p>
+    </div>
+    <?php
+}
+
+custom_admin_notice();
+
+?>
+
 <div class="custom-welcome-panel postbox">
 
 	<h3><?php _e( 'You’re using URI WordPress.', 'uri' ); ?></h3>
