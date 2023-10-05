@@ -19,7 +19,7 @@ function uri_admin_register_settings() {
     register_setting(
         'uri_admin',
         'uri_admin_content',
-        'sanitize_text_field'
+        //'sanitize_text_field'
     );
 
     register_setting(
@@ -82,7 +82,7 @@ add_action( 'admin_init', 'uri_admin_register_settings' );
  * @see add_settings_section()
  */
 function uri_admin_settings_section( $args ) {
-	$intro = 'URI Admin can display information.';
+	$intro = 'URI Admin can display notices and information.';
 	echo '<p id="' . esc_attr( $args['id'] ) . '">' . esc_html_e( $intro, 'uri' ) . '</p>';
 }
 
@@ -119,7 +119,7 @@ function uri_admin_settings_page_html() {
 	?>
 <div class="wrap">
 			<h1><?php echo esc_html( get_admin_page_title() ); ?></h1>
-			<form action="edit.php?action=save" method="post">
+			<form action="edit.php?action=settings" method="post">
 				<?php
 					// output security fields for the registered setting "uri_admin"
 					settings_fields( 'uri_admin' );
@@ -141,24 +141,26 @@ function uri_admin_settings_page_html() {
  */
 function uri_admin_heading_field( $args ) {
 	// get the value of the setting we've registered with register_setting()
-	$setting = get_site_option( 'uri_admin_heading' );
+	$setting_heading = get_site_option( 'uri_admin_heading' );
 	// output the field
 	?>
-		<input type="text" class="regular-text" aria-describedby="uri-admin-field-heading" name="uri_admin_heading" id="uri-admin-field-heading" value="<?php print ($setting!==FALSE) ? esc_attr($setting) : ''; ?>">
+	<div class="wrap">
+		<input type="text" class="regular-text" aria-describedby="uri-admin-field-heading" name="uri_admin_heading" id="uri-admin-field-heading" value="<?php print ($setting_heading!==FALSE) ? esc_attr($setting_heading) : ''; ?>">
 		<p class="uri-admin-field-heading">
 			<?php
 				esc_html_e( 'Provide a heading for the message', 'uri' );
 			?>
 		</p>
+</div>
 	<?php
 }
 
 function uri_admin_content_field( $args ) {
 	// get the value of the setting we've registered with register_setting()
-	$setting = get_site_option( 'uri_admin_content' );
+	$setting_content = get_site_option( 'uri_admin_content' );
 	// output the field
 	?>
-		<textarea class="regular-text" aria-describedby="uri-admin-field-content" name="uri_admin_content" id="uri-admin-field-content" value="<?php print ($setting!==FALSE) ? esc_attr($setting) : ''; ?>"></textarea>
+		<textarea class="regular-text" aria-describedby="uri-admin-field-content" name="uri_admin_content" id="uri-admin-field-content" value="<?php print ($setting_content!==FALSE) ? $setting_content : ''; ?>"></textarea>
 		<p class="uri-admin-field-content">
 			<?php
 				esc_html_e( 'Provide the content for the message', 'uri' );
@@ -169,14 +171,15 @@ function uri_admin_content_field( $args ) {
 
 function uri_admin_color_field( $args ) {
 	// get the value of the setting we've registered with register_setting()
-	$setting = get_site_option( 'uri_admin_color' );
+	$setting_color = get_site_option( 'uri_admin_color' );
 	// output the field
 	?>
-		<select class="regular-select" aria-describedby="uri-admin-field-color" name="uri_admin_color" id="uri-admin-field-color" value="<?php print ($setting!==FALSE) ? esc_attr($setting) : ''; ?>">
-	<option value="no_color">--No color--</option>
+		<select class="regular-select" aria-describedby="uri-admin-field-color" name="uri_admin_color" id="uri-admin-field-color" value="<?php print $setting_color ?>">
+	<option selected disabled value=''>--</option>
+		<option value="nocolor">No color</option>
 		<option value="red">Red</option>
 	<option value="yellow">Yellow</option>
-	<option value="red">Green</option>
+	<option value="green">Green</option>
 </select>
 		<p class="uri-admin-field-color">
 			<?php
@@ -188,9 +191,32 @@ function uri_admin_color_field( $args ) {
  /**
 * Save the Settings
 */
+// add_action( 'network_admin_edit_{ACTION}', 'uri_admin_save_settings' );
+add_action('network_admin_edit_settings', 'uri_admin_save_options');
+function uri_admin_save_options() {
+
+	update_site_option( 'uri_admin_heading', $_POST['uri_admin_heading'] );
+	update_site_option( 'uri_admin_content', $_POST['uri_admin_content'] );
+	update_site_option( 'uri_admin_color', $_POST['uri_admin_color'] );
+
+	wp_redirect( add_query_arg( array(
+		'page' => 'uri-admin-settings',
+		'settings-updated' => true ), network_admin_url('admin.php')
+	));
+	exit;
+}
 
 
 /**
  * Add admin notice
  */
 
+ add_action( 'network_admin_notices', 'uri_admin_custom_notices' );
+
+ function uri_admin_custom_notices(){
+ 
+	 if( isset($_GET['page']) && $_GET['page'] == 'uri-admin-settings' && isset( $_GET['settings-updated'] )  ) {
+		 echo '<div id="message" class="updated notice is-dismissible"><p>Settings updated.</p><button type="button" class="notice-dismiss"><span class="screen-reader-text">Dismiss this notice.</span></button></div>';
+	 }
+ 
+ }
