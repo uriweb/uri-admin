@@ -59,6 +59,10 @@ add_filter( 'admin_footer_text', 'uri_admin_footer' );
  * Create custom dashboard widgets and resort the widgets to put URI on top.
  */
 function uri_admin_dashboard_widgets() {
+
+	// disable this widget for now, it's not being maintained... but maybe in the future
+	return null;
+
 	global $wp_meta_boxes;
 
 	wp_add_dashboard_widget(
@@ -111,23 +115,27 @@ function uri_admin_dashboard_wordpress_updates_feed_output() {
 
 /**
  * Remove unwanted WP Admin Dashboard boxes
+ * 
+ * @see https://www.wpexplorer.com/customize-wordpress-admin-dashboard/
  */
 function uri_admin_remove_boxes() {
-	// @see https://www.wpexplorer.com/customize-wordpress-admin-dashboard/
-	// limit our handed-down customizations to users who can't manage options
+	// Remove some widgets for everyone
+	if ( ! uri_admin_has_admin_privilages() ) {
+		remove_meta_box( 'dashboard_site_health', 'dashboard', 'normal' );
+		remove_meta_box( 'dashboard_quick_press', 'dashboard', 'side' ); // what's on your mind?
+		remove_meta_box( 'dashboard_right_now', 'dashboard', 'normal' ); // # pages, #posts, theme
+	}
+
+	// Remove other widgets for users who can't manage options
 	if ( ! current_user_can( 'manage_options' ) ) {
-		// these are the default WP meta boxes
 		remove_meta_box( 'dashboard_incoming_links', 'dashboard', 'normal' );
 		remove_meta_box( 'dashboard_plugins', 'dashboard', 'normal' );
 		remove_meta_box( 'dashboard_primary', 'dashboard', 'normal' ); // wp events and news
 		remove_meta_box( 'dashboard_secondary', 'dashboard', 'normal' );
-//		remove_meta_box( 'dashboard_quick_press', 'dashboard', 'side' ); // what's on your mind?
 		remove_meta_box( 'dashboard_recent_drafts', 'dashboard', 'side' );
 		remove_meta_box( 'dashboard_recent_comments', 'dashboard', 'normal' );
-//		remove_meta_box( 'dashboard_right_now', 'dashboard', 'normal' ); // # pages, #posts, theme
-//		remove_meta_box( 'dashboard_activity', 'dashboard', 'normal' ); // activity
+		remove_meta_box( 'dashboard_activity', 'dashboard', 'normal' ); // activity
 	}
-
 }
 add_action( 'admin_init', 'uri_admin_remove_boxes' );
 
@@ -145,4 +153,20 @@ function uri_admin_welcome_panel() {
 }
 add_action('admin_notices', 'uri_admin_welcome_panel');
 
+/**
+ * Get user role
+ */
+function uri_admin_has_admin_privilages() {
 
+	$admin = false;
+
+	global $current_user;
+	$role = array_shift( $current_user->roles );
+
+	if ( 'administrator' == $role || 'Webadmin' == $role ) {
+		$admin = true;
+	}
+
+	return $admin;
+
+}
