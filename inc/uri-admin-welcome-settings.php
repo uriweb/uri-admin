@@ -160,7 +160,7 @@ function uri_admin_content_field( $args ) {
 	$setting_content = get_site_option( 'uri_admin_content' );
 	// output the field
 	?>
-		<textarea class="regular-text" aria-describedby="uri-admin-field-content" name="uri_admin_content" id="uri-admin-field-content" value="<?php print ($setting_content!==FALSE) ? $setting_content : ''; ?>"></textarea>
+		<textarea class="regular-text" aria-describedby="uri-admin-field-content" name="uri_admin_content" id="uri-admin-field-content"><?php print ($setting_content!==FALSE) ? esc_attr($setting_content) : ''; ?></textarea>
 		<p class="uri-admin-field-content">
 			<?php
 				esc_html_e( 'Provide the content for the message', 'uri' );
@@ -172,15 +172,17 @@ function uri_admin_content_field( $args ) {
 function uri_admin_color_field( $args ) {
 	// get the value of the setting we've registered with register_setting()
 	$setting_color = get_site_option( 'uri_admin_color' );
+	$options = ['nocolor','red','yellow','green'];
+	$markup = '';
+	foreach($options as $o) {
+		$selected = ($setting_color==$o) ? 'selected' : '';
+		$markup .= '<option value="'. $o . '" ' . $selected . '>' . $o . '</option>';
+	}
 	// output the field
 	?>
-		<select class="regular-select" aria-describedby="uri-admin-field-color" name="uri_admin_color" id="uri-admin-field-color" value="<?php print $setting_color ?>">
-	<option selected disabled value=''>--</option>
-		<option value="nocolor">No color</option>
-		<option value="red">Red</option>
-	<option value="yellow">Yellow</option>
-	<option value="green">Green</option>
-</select>
+		<select class="regular-select" aria-describedby="uri-admin-field-color" name="uri_admin_color" id="uri-admin-field-color" value="<?php print ($setting_color!==FALSE) ? $setting_color : ''; ?>">
+			<?php print $markup; ?>
+		</select>
 		<p class="uri-admin-field-color">
 			<?php
 				esc_html_e( 'Select the border color for the message', 'uri' );

@@ -8,7 +8,9 @@ function custom_admin_notice() {
     <?php
 }
 
-custom_admin_notice();
+if ( get_site_option( 'uri_admin_content' ) != '' ) {
+	custom_admin_notice();
+}
 
 ?>
 
