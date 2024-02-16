@@ -27,10 +27,15 @@ function uri_admin_register_settings() {
         'uri_admin_color'
     );
 
+	register_setting(
+        'uri_admin',
+        'uri_admin_reset_notice'
+    );
+
     add_settings_section(
-        'uri_admin_settings',
-        __( 'URI Admin Settings', 'uri' ),
-        'uri_admin_settings_section',
+        'uri_admin_notice_settings',
+        __( 'Dashboard Notice Settings', 'uri' ),
+        'uri_admin_notice_settings_section',
         'uri_admin'
     );
 
@@ -40,7 +45,7 @@ function uri_admin_register_settings() {
 		__( 'Heading', 'uri' ), // title
 		'uri_admin_heading_field', // callback
 		'uri_admin', // page
-		'uri_admin_settings', //section
+		'uri_admin_notice_settings', //section
 		array( //args
 			'label_for' => 'uri-admin-field-heading',
 			'class' => 'uri_admin_row',
@@ -52,7 +57,7 @@ function uri_admin_register_settings() {
 		__( 'Content', 'uri' ), // title
 		'uri_admin_content_field', // callback
 		'uri_admin', // page
-		'uri_admin_settings', //section
+		'uri_admin_notice_settings', //section
 		array( //args
 			'label_for' => 'uri-admin-field-content',
 			'class' => 'uri_admin_row',
@@ -64,9 +69,21 @@ function uri_admin_register_settings() {
 		__( 'Color', 'uri' ), // title
 		'uri_admin_color_field', // callback
 		'uri_admin', // page
-		'uri_admin_settings', //section
+		'uri_admin_notice_settings', //section
 		array( //args
 			'label_for' => 'uri-admin-field-color',
+			'class' => 'uri_admin_row',
+		)
+	);
+
+	add_settings_field(
+        'uri_admin_reset_notice', // id: as of WP 4.6 this value is used only internally
+		__( 'Reset Notice', 'uri' ), // title
+		'uri_admin_reset_notice_field', // callback
+		'uri_admin', // page
+		'uri_admin_notice_settings', //section
+		array( //args
+			'label_for' => 'uri-admin-field-reset-notice',
 			'class' => 'uri_admin_row',
 		)
 	);
@@ -81,7 +98,7 @@ add_action( 'admin_init', 'uri_admin_register_settings' );
  * @param arr $args has the following keys defined: title, id, callback.
  * @see add_settings_section()
  */
-function uri_admin_settings_section( $args ) {
+function uri_admin_notice_settings_section( $args ) {
 	$intro = 'URI Admin can display notices and information.';
 	echo '<p id="' . esc_attr( $args['id'] ) . '">' . esc_html_e( $intro, 'uri' ) . '</p>';
 }
@@ -172,7 +189,7 @@ function uri_admin_content_field( $args ) {
 function uri_admin_color_field( $args ) {
 	// get the value of the setting we've registered with register_setting()
 	$setting_color = get_site_option( 'uri_admin_color' );
-	$options = ['nocolor','red','yellow','green'];
+	$options = ['none','red','yellow','green'];
 	$markup = '';
 	foreach($options as $o) {
 		$selected = ($setting_color==$o) ? 'selected' : '';
@@ -190,6 +207,18 @@ function uri_admin_color_field( $args ) {
 		</p>
 	<?php
 }
+
+function uri_admin_reset_notice_field( $args ) {
+	// output the field
+	?>
+		<input type="checkbox" class="checkbox" aria-describedby="uri-admin-field-reset-notice" name="uri_admin_reset_notice" id="uri-admin-field-reset_notice">
+		<p class="uri-admin-field-reset-notice">
+			<?php
+				esc_html_e( 'Reset the above fields (reset will occur when settings are saved)', 'uri' );
+			?>
+		</p>
+	<?php
+}
  /**
 * Save the Settings
 */
@@ -197,9 +226,15 @@ function uri_admin_color_field( $args ) {
 add_action('network_admin_edit_settings', 'uri_admin_save_options');
 function uri_admin_save_options() {
 
-	update_site_option( 'uri_admin_heading', $_POST['uri_admin_heading'] );
-	update_site_option( 'uri_admin_content', $_POST['uri_admin_content'] );
-	update_site_option( 'uri_admin_color', $_POST['uri_admin_color'] );
+	if ( $_POST['uri_admin_reset_notice'] ) {
+		update_site_option( 'uri_admin_heading', '' );
+		update_site_option( 'uri_admin_content', '' );
+		update_site_option( 'uri_admin_color', '' );
+	} else {
+		update_site_option( 'uri_admin_heading', $_POST['uri_admin_heading'] );
+		update_site_option( 'uri_admin_content', $_POST['uri_admin_content'] );
+		update_site_option( 'uri_admin_color', $_POST['uri_admin_color'] );
+	}
 
 	wp_redirect( add_query_arg( array(
 		'page' => 'uri-admin-settings',
