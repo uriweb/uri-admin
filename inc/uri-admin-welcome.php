@@ -1,3 +1,19 @@
+<?php
+function custom_admin_notice() {
+    ?>
+    <div class="custom-notice notice-<?php _e( get_site_option( 'uri_admin_color' ), 'uri' )?> ">
+		<h2><?php _e( get_site_option( 'uri_admin_heading' ), 'uri' ); ?></h2>
+        <p><?php _e( get_site_option( 'uri_admin_content' ), 'uri' ); ?></p>
+    </div>
+    <?php
+}
+
+if ( get_site_option( 'uri_admin_content' ) != '' ) {
+	custom_admin_notice();
+}
+
+?>
+
 <div class="custom-welcome-panel postbox">
 
 	<div class="welcome-banner"></div>

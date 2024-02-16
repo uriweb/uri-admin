@@ -17,6 +17,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 	die( '-1' );
 }
 
+define( 'URI_ADMIN_PATH', plugin_dir_path( __FILE__ ) );
+
+// include settings page
+
+include( URI_ADMIN_PATH . 'inc/uri-admin-welcome-settings.php' );
+
 // prevent the confirm admin email prompt from appearing
 add_filter( 'admin_email_check_interval', '__return_false' );
 
