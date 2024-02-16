@@ -1,9 +1,19 @@
 # URI Admin
 
-This plugin makes some URI-specific customizations to the WordPress admin screens.  Specifically:
+This plugin makes a number of URI-specific modifications to the WordPress admin dashboard screen:
 
-1. updates the Thank you for using WordPress footer message
-1. replaces the main welcome box on the admin dashboard
-1. removes widgets from the admin dashboard: quick_press, right_now, and activity
-1. suppresses the "confirm admin email" interstitial screen
-1. adds an list of URI updates from an RSS feed
+- Updates the Thank you for using WordPress footer message
+- Replaces the main welcome box on the admin dashboard
+- Removes several widgets from the admin dashboard
+- Suppresses the "confirm admin email" interstitial screen
+- Adds a network settings page for creating temporary notices
+
+## Plugin Details
+
+__Contributors:__ John Pennypacker, Brandon Fuller, Alexandra Gauss  
+__Tags:__ plugins, shortcodes  
+__Requires at least:__ 5.0  
+__Tested up to:__ 6.1  
+__Stable tag:__ 2.0.0  
+__License:__ GPL-3.0  
+__Licence URI:__ https://www.gnu.org/licenses/gpl-3.0.html
