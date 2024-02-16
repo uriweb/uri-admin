@@ -1,12 +1,14 @@
 # URI Admin
 
-This plugin makes a number of URI-specific modifications to the WordPress admin dashboard screen:
+This plugin makes a number of URI-specific modifications to the WordPress admin dashboard screen.
 
-- Updates the Thank you for using WordPress footer message
-- Replaces the main welcome box on the admin dashboard
-- Removes several widgets from the admin dashboard
-- Suppresses the "confirm admin email" interstitial screen
-- Adds a network settings page for creating temporary notices
+## What's new in 2.0
+
+* Introduces new styles and content for the welcome message
+    * Helpful links in the welcome message change depending on the active user's capabilities
+* Adds network settings for configuring a network-wide notice, which will above the welcome message when active
+* Removes the RSS updates feed
+* Removes other unhelpful widgets
 
 ## Plugin Details
 
