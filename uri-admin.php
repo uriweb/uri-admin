@@ -119,16 +119,15 @@ function uri_admin_dashboard_wordpress_updates_feed_output() {
  * @see https://www.wpexplorer.com/customize-wordpress-admin-dashboard/
  */
 function uri_admin_remove_boxes() {
-	// Remove some widgets for everyone
+	// Remove some widgets for users who are not administrators 
 	if ( ! uri_admin_has_admin_privilages() ) {
 		remove_meta_box( 'dashboard_site_health', 'dashboard', 'normal' );
 		remove_meta_box( 'dashboard_quick_press', 'dashboard', 'side' ); // what's on your mind?
-		
+		remove_meta_box( 'dashboard_right_now', 'dashboard', 'normal' ); // # pages, #posts, theme
 	}
 
 	// Remove other widgets for users who can't manage options
 	if ( ! current_user_can( 'manage_options' ) ) {
-		remove_meta_box( 'dashboard_right_now', 'dashboard', 'normal' ); // # pages, #posts, theme
 		remove_meta_box( 'dashboard_incoming_links', 'dashboard', 'normal' );
 		remove_meta_box( 'dashboard_plugins', 'dashboard', 'normal' );
 		remove_meta_box( 'dashboard_primary', 'dashboard', 'normal' ); // wp events and news
