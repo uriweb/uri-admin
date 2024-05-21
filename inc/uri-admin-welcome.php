@@ -57,9 +57,11 @@ if ( get_site_option( 'uri_admin_content' ) != '' ) {
 			</div>
 
 			<?php if ( current_user_can( 'edit_theme_options' ) ): ?>
+				
 			<div class="column">
 				<h4><?php _e( 'Advanced tasks', 'uri' ); ?></h4>
 				<ul>
+				<li class="hide-if-no-customize"><?php printf( '<a href="%s" class="welcome-icon welcome-customize">' . __( 'Customize your site', 'uri' ) . '</a>', admin_url( 'customize.php' ) ); ?></li>
 					<li class="hide-if-no-customize"><?php printf( '<div class="welcome-icon welcome-widgets-menus">' . __( '<a href="%s">Manage menus</a>' ) . '</div>', admin_url( 'nav-menus.php' ) ); ?></li>
 					<!--li><?php printf( __( '<a href="%s" target="_blank">Learn about categories</a>' ), 'https://make.wordpress.org/support/user-manual/content/categories-and-tags/categories/' ); ?></li-->
 				</ul>
