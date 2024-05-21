@@ -27,7 +27,11 @@ include( URI_ADMIN_PATH . 'inc/uri-admin-welcome-settings.php' );
 add_filter( 'admin_email_check_interval', '__return_false' );
 
 // Remove the default welcome dashboard message
+function remove_welcome_panel() {
 remove_action( 'welcome_panel', 'wp_welcome_panel' );
+}
+
+add_action( 'admin_init', 'remove_welcome_panel' );
 
 
 /**
@@ -138,6 +142,9 @@ function uri_admin_remove_boxes() {
 	}
 }
 add_action( 'admin_init', 'uri_admin_remove_boxes' );
+
+// Display space usage in At a Glance widget
+add_action( 'dashboard_glance_items', 'display_space_usage' );
 
 /**
  * display a replacement for the welcome panel
