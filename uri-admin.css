@@ -1,5 +1,5 @@
 .custom-welcome-panel {
-	background-color: #def1ff;
+	background-color: #eef4f9;
 	margin: 2rem 1rem 2rem 0;
 	border-color: #7cbeee;
 }
@@ -48,7 +48,7 @@
 
 .welcome-content .disclaimer p {
 	margin: 0;
-	font-size: 80%;
+	font-size: 90%;
 	opacity: .7;
 }
 

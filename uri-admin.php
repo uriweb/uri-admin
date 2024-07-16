@@ -3,7 +3,7 @@
  * Plugin Name: URI Admin
  * Plugin URI: https://www.uri.edu/wordpress/software/
  * Description: Customizations for the admin dashboard
- * Version: 2.0.0
+ * Version: 2.1.0
  * Author: URI Web Communications
  * Author URI: https://web.uri.edu/external-relations/contact-us/#web
  *
@@ -27,7 +27,11 @@ include( URI_ADMIN_PATH . 'inc/uri-admin-welcome-settings.php' );
 add_filter( 'admin_email_check_interval', '__return_false' );
 
 // Remove the default welcome dashboard message
+function remove_welcome_panel() {
 remove_action( 'welcome_panel', 'wp_welcome_panel' );
+}
+
+add_action( 'admin_init', 'remove_welcome_panel' );
 
 
 /**
@@ -119,7 +123,7 @@ function uri_admin_dashboard_wordpress_updates_feed_output() {
  * @see https://www.wpexplorer.com/customize-wordpress-admin-dashboard/
  */
 function uri_admin_remove_boxes() {
-	// Remove some widgets for everyone
+	// Remove some widgets for users who are not administrators 
 	if ( ! uri_admin_has_admin_privilages() ) {
 		remove_meta_box( 'dashboard_site_health', 'dashboard', 'normal' );
 		remove_meta_box( 'dashboard_quick_press', 'dashboard', 'side' ); // what's on your mind?
@@ -138,6 +142,9 @@ function uri_admin_remove_boxes() {
 	}
 }
 add_action( 'admin_init', 'uri_admin_remove_boxes' );
+
+// Display space usage in At a Glance widget
+add_action( 'dashboard_glance_items', 'display_space_usage' );
 
 /**
  * display a replacement for the welcome panel
