@@ -173,6 +173,5 @@ function uri_admin_has_admin_privilages() {
 	if ( 'administrator' == $role || 'webadmin' == $role ) {
 		$admin = true;
 	}
-var_dump($admin);
 	return $admin;
 }
