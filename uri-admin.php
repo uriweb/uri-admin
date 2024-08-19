@@ -170,10 +170,9 @@ function uri_admin_has_admin_privilages() {
 	global $current_user;
 	$role = array_shift( $current_user->roles );
 
-	if ( 'administrator' == $role || 'Webadmin' == $role ) {
+	if ( 'administrator' == $role || 'webadmin' == $role ) {
 		$admin = true;
 	}
-
+var_dump($admin);
 	return $admin;
-
 }
