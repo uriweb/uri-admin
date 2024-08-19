@@ -3,7 +3,7 @@
  * Plugin Name: URI Admin
  * Plugin URI: https://www.uri.edu/wordpress/software/
  * Description: Customizations for the admin dashboard
- * Version: 2.1.0
+ * Version: 2.1.1
  * Author: URI Web Communications
  * Author URI: https://web.uri.edu/external-relations/contact-us/#web
  *
@@ -170,10 +170,8 @@ function uri_admin_has_admin_privilages() {
 	global $current_user;
 	$role = array_shift( $current_user->roles );
 
-	if ( 'administrator' == $role || 'Webadmin' == $role ) {
+	if ( 'administrator' == $role || 'webadmin' == $role ) {
 		$admin = true;
 	}
-
 	return $admin;
-
 }
