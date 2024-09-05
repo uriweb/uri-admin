@@ -3,7 +3,7 @@
  * Plugin Name: URI Admin
  * Plugin URI: https://www.uri.edu/wordpress/software/
  * Description: Customizations for the admin dashboard
- * Version: 2.1.1
+ * Version: 2.1.2
  * Author: URI Web Communications
  * Author URI: https://web.uri.edu/external-relations/contact-us/#web
  *
@@ -127,11 +127,11 @@ function uri_admin_remove_boxes() {
 	if ( ! uri_admin_has_admin_privilages() ) {
 		remove_meta_box( 'dashboard_site_health', 'dashboard', 'normal' );
 		remove_meta_box( 'dashboard_quick_press', 'dashboard', 'side' ); // what's on your mind?
-		remove_meta_box( 'dashboard_right_now', 'dashboard', 'normal' ); // # pages, #posts, theme
 	}
 
 	// Remove other widgets for users who can't manage options
 	if ( ! current_user_can( 'manage_options' ) ) {
+		//remove_meta_box( 'dashboard_right_now', 'dashboard', 'normal' ); // # pages, #posts, theme
 		remove_meta_box( 'dashboard_incoming_links', 'dashboard', 'normal' );
 		remove_meta_box( 'dashboard_plugins', 'dashboard', 'normal' );
 		remove_meta_box( 'dashboard_primary', 'dashboard', 'normal' ); // wp events and news
