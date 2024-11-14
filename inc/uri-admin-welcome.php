@@ -1,4 +1,7 @@
 <?php
+/**
+ * Display a custom notice set in the network settings
+ */
 function uri_admin_custom_admin_notice() {
     ?>
     <div class="custom-notice notice-<?php _e( get_site_option( 'uri_admin_color' ), 'uri' )?> ">
@@ -10,6 +13,30 @@ function uri_admin_custom_admin_notice() {
 
 if ( get_site_option( 'uri_admin_content' ) != '' ) {
 	uri_admin_custom_admin_notice();
+}
+
+/**
+ * Display a deprecation notice on sites running legacy themes
+ */
+function uri_admin_theme_deprecation_notice() {
+	date_default_timezone_set('America/New_York');
+	$from = strtotime('2025-06-01');
+	$today = time();
+	$difference = $today - $from;
+	?>
+	<div class="custom-notice notice-yellow">
+		<h2>This site's theme is going away in <?php echo floor($difference / 86400) * -1 ?> days.</h2>
+		<p>This site is running a legacy URI WordPress theme, and regular maintenance ended in May 2018.  In order to finish unifying the look and feel of URI's websites, and prepare for underlying changes in technology, <strong>support for this theme will end on June 1, 2025</strong>.</p>
+		<p>In order to keep this site running, you'll need to migrate to the URI Modern theme.  Please <?php printf( __( '<a href="%s" target="_blank">' . __( 'contact Web Communications', 'uri' ) . '</a>' ), 'https://www.uri.edu/wordpress/request/support/' ); ?> to start the process.</p>
+		<p><strong>If you do not take action, or if you no longer need this site, it will be archived on or shortly after June 1, 2025, and permanently deleted by January 1, 2026.</strong> We encourage you to let us know if the site is no longer needed so that we may archive it even earlier.</p>
+	</div>
+	<?php
+}
+
+$current_theme = wp_get_theme();
+$current_theme_name = $current_theme->get('Name');
+if ( 'URI Responsive' == $current_theme_name || 'Themify Responz' == $current_theme_name || 'uri-department' == $current_theme_name ) {
+	uri_admin_theme_deprecation_notice();
 }
 
 ?>
@@ -74,7 +101,7 @@ if ( get_site_option( 'uri_admin_content' ) != '' ) {
 
 		<div class="disclaimer">
 			<p>URI's web presence is directed by <a href="https://web.uri.edu/external-relations/contact-us/">Communications and Marketing</a>.</p>
-			<p>Get in touch with the Web Communications team by <?php printf( __( '<a href="%s" target="_blank">' . __( 'requesting support', 'uri' ) . '</a>' ), 'https://www.uri.edu/wordpress/request/support/?your_site_url=' . urlencode( home_url( '/' ) ) . '&your_email=' . urlencode( wp_get_current_user()->user_email ) ); ?> or emailing <a href="mailto:web-group@uri.edu">web-group@uri.edu</a>.</p>
+			<p>Get in touch with the Web Communications team by <?php printf( __( '<a href="%s" target="_blank">' . __( 'requesting support', 'uri' ) . '</a>' ), 'https://www.uri.edu/wordpress/request/support/' ); ?> or emailing <a href="mailto:web-group@uri.edu">web-group@uri.edu</a>.</p>
 		</div>
 
 	</div><!-- .welcome-content -->
