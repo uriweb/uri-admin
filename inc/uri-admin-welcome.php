@@ -1,5 +1,5 @@
 <?php
-function custom_admin_notice() {
+function uri_admin_custom_admin_notice() {
     ?>
     <div class="custom-notice notice-<?php _e( get_site_option( 'uri_admin_color' ), 'uri' )?> ">
 		<h2><?php _e( get_site_option( 'uri_admin_heading' ), 'uri' ); ?></h2>
@@ -9,7 +9,7 @@ function custom_admin_notice() {
 }
 
 if ( get_site_option( 'uri_admin_content' ) != '' ) {
-	custom_admin_notice();
+	uri_admin_custom_admin_notice();
 }
 
 ?>
