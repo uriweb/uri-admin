@@ -65,31 +65,53 @@
 
 .custom-notice {
 	margin-top: 4rem;
+	border-width: 1px;
+	border-style: solid;
+	border-left-width: 1rem;
+}
+
+.custom-notice hr {
+	margin: 1rem 0;
+}
+
+.custom-notice h2 {
+	font-size: 1.2rem;
+}
+
+.custom-notice h3 {
+	font-size: .9rem;
+	margin: 0 0 .3rem;
+}
+
+.custom-notice p {
+	max-width: 900px;
+	margin: 0 0 .5rem;
 }
 
 .notice-green {
 	background-color: #fff;
 	padding: 1rem 1.5rem;
 	margin: 2rem 1rem 2rem 0;
-	border-left: 1rem solid green;
+	border-color: green;
 }
 
 .notice-yellow {
 	background-color: #fff;
 	padding: 1rem 1.5rem;
 	margin: 2rem 1rem 2rem 0;
-	border-left: 1rem solid rgb(216, 181, 26);
+	border-color: rgb(216, 181, 26);
 }
 
 .notice-red {
 	background-color: #fff;
 	padding: 1rem 1.5rem;
 	margin: 2rem 1rem 2rem 0;
-	border-left: 1rem solid rgb(164, 26, 26);
+	border-color: rgb(164, 26, 26);
 }
 
 .notice-none {
 	background-color: #fff;
 	padding: 1rem 1.5rem;
 	margin: 2rem 1rem 2rem 0;
+	border: none;
 }
