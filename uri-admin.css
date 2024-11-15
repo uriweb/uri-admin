@@ -70,8 +70,22 @@
 	border-left-width: 1rem;
 }
 
+.custom-notice hr {
+	margin: 1rem 0;
+}
+
+.custom-notice h2 {
+	font-size: 1.2rem;
+}
+
+.custom-notice h3 {
+	font-size: .9rem;
+	margin: 0 0 .3rem;
+}
+
 .custom-notice p {
-	max-width: 800px;
+	max-width: 900px;
+	margin: 0 0 .5rem;
 }
 
 .notice-green {

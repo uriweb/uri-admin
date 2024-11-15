@@ -20,15 +20,18 @@ if ( get_site_option( 'uri_admin_content' ) != '' ) {
  */
 function uri_admin_theme_deprecation_notice() {
 	date_default_timezone_set('America/New_York');
-	$from = strtotime('2025-06-01');
+	$from = strtotime('2025-06-02');
 	$today = time();
 	$difference = $today - $from;
 	?>
 	<div class="custom-notice notice-yellow">
 		<h2>This site's theme is going away in <?php echo floor($difference / 86400) * -1 ?> days.</h2>
-		<p>This site is running a legacy URI WordPress theme, and regular maintenance ended in May 2018.  In order to finish unifying the look and feel of URI's websites, and prepare for underlying changes in technology, <strong>support for this theme will end on June 1, 2025</strong>.</p>
-		<p>In order to keep this site running, you'll need to migrate to the URI Modern theme.  Please <?php printf( __( '<a href="%s" target="_blank">' . __( 'contact Web Communications', 'uri' ) . '</a>' ), 'https://www.uri.edu/wordpress/request/support/' ); ?> to start the process.</p>
-		<p><strong>If you do not take action, or if you no longer need this site, it will be archived on or shortly after June 1, 2025, and permanently deleted by January 1, 2026.</strong> We encourage you to let us know if the site is no longer needed so that we may archive it even earlier.</p>
+		<h3>Why am I seeing this message?</h3>
+		<p>This site is running a legacy URI WordPress theme, the regular maintenance of which ended in May 2018. In order to finish unifying the look and feel of URI's websites, meet ADA-compliance and responsiveness standards, and prepare for changes in underlying technologies, <strong>support for this theme will end on June 2, 2025</strong>.</p>
+		<hr>
+		<h3>What do I need to do?</h3>
+		<p>In order to keep this site running, you'll need to migrate to the URI Modern theme between now and the end of May 2025.  Please <?php printf( __( '<a href="%s" target="_blank">' . __( 'contact Web Communications', 'uri' ) . '</a>' ), 'https://www.uri.edu/wordpress/request/support/' ); ?> to start the process.</p>
+		<p><strong>If you do not take action, the site will be archived on or shortly after June 2, 2025, and permanently deleted by January 9, 2026.</strong> We encourage you to let us know if the site is no longer needed so that we may archive it sooner. In the spring of 2025, we will attempt to contact site owners we have not heard from to determine a course of action.</p>
 	</div>
 	<?php
 }
