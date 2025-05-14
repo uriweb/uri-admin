@@ -22,16 +22,20 @@ function uri_admin_theme_deprecation_notice() {
 	date_default_timezone_set('America/New_York');
 	$from = strtotime('2025-06-02');
 	$today = time();
-	$difference = $today - $from;
+	$remaining = floor( ($today - $from) / 86400) * -1;
+	$text = "This site's theme has reached end of life. The site will be archived shortly.";
+	if ( 0 < $remaining ) {
+		$text = "This site's theme is going away " . ($remaining == 1 ? "tomorrow" : "in $remaining days") . ".";
+	}
 	?>
-	<div class="custom-notice notice-yellow">
-		<h2>This site's theme is going away in <?php echo floor($difference / 86400) * -1 ?> days.</h2>
+	<div class="custom-notice notice-red">
+		<h2><?php echo $text ?></h2>
 		<h3>Why am I seeing this message?</h3>
-		<p>This site is running a legacy URI WordPress theme, the regular maintenance of which ended in May 2018. In order to finish unifying the look and feel of URI's websites, meet ADA-compliance and responsiveness standards, and prepare for changes in underlying technologies, <strong>support for this theme will end on June 2, 2025</strong>.</p>
+		<p>This site is running a legacy URI WordPress theme, the regular maintenance of which ended in May 2018. In order to finish unifying the look and feel of URI's websites, meet ADA-compliance and responsiveness standards, and prepare for changes in underlying technologies, <strong>support for this theme <?php echo ($remaining < 0 ? "ended" : "will end"); ?> on June 2, 2025</strong>.</p>
 		<hr>
 		<h3>What do I need to do?</h3>
-		<p>In order to keep this site running, it will need to adopt the URI Modern theme by the end of May 2025.  Please <?php printf( __( '<a href="%s" target="_blank">' . __( 'contact Web Communications', 'uri' ) . '</a>' ), 'https://www.uri.edu/wordpress/request/support/legacy-theme-form/' ); ?> to start the process, either to migrate the site or archive it. In the coming weeks, we will also attempt to contact known site owners directly.</p>
-		<p><strong>If you do not take action, the site will be archived on or shortly after June 2, 2025, and permanently deleted by January 9, 2026.</strong> We encourage you to let us know if the site is no longer needed so that we may archive it sooner.</p>
+		<p>In order to keep this site running, it will need to adopt the URI Modern theme by the end of May 2025.  Over the past several months, Web Communications has attempted to contact site owners to determine how best to handle each site. Please <?php printf( __( '<a href="%s" target="_blank">' . __( 'contact Web Communications', 'uri' ) . '</a>' ), 'https://www.uri.edu/wordpress/request/support/legacy-theme-form/' ); ?> if you are unsure or have questions about what will happen to this site after June 2, 2025.</p>
+		<p><strong>If you do not take action, the site will be archived on or shortly after June 2, 2025, and permanently deleted by January 9, 2026.</strong> Note that, even after the site is archived, it may not be fully recoverable. We encourage you to let us know if the site is no longer needed so that we may archive it sooner.</p>
 	</div>
 	<?php
 }
