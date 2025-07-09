@@ -54,14 +54,14 @@ if ( 'URI Responsive' == $current_theme_name || 'Themify Responz' == $current_th
 
 	<div class="welcome-content">
 
-		<h3 class="header"><?php _e( 'Don’t panic.', 'uri' ); ?> <span><?php _e( 'You’re using WordPress at URI.', 'uri' ); ?></span></h3>
+		<h3 class="header"><?php _e( 'Welcome to Wordpress at URI', 'uri' ); ?> </h3>
 
-		<p class="about-description"><?php _e( 'WordPress makes it easy and efficient to build websites for all our institutional needs.  We offer guides and documentation help to stay on-brand and deliver clear and useful content to our digital audience. And, we’re here to help when you need it.', 'uri' ); ?></p>
+		<p class="about-description"><?php _e( 'We\'ve assembled some of guides and documentation to help you stay on-brand and deliver clear and useful content to our digital audience. And, we’re here to help when you need it.', 'uri' ); ?></p>
 
 		<div class="welcome-cols">
 
-			<div class="column">
-				<h4><?php _e( 'Lay the groundwork', 'uri' ); ?></h4>
+			<div class="column-admin">
+				<h4 class="column-head"><?php _e( 'About', 'uri' ); ?></h4>
 				<ul>
 					<li><?php printf( '<a href="%s" class="welcome-icon welcome-wp-at-uri" target="_blank">' . __( 'About WordPress at URI', 'uri' ) . '</a>', 'https://www.uri.edu/wordpress/' ); ?></li>
 					<li><?php printf( '<a href="%s" class="welcome-icon welcome-content-guide" target="_blank">' . __( 'URI Content Guide', 'uri' ) . '</a>', 'https://www.uri.edu/wordpress/content-guide/' ); ?></li>
@@ -70,8 +70,8 @@ if ( 'URI Responsive' == $current_theme_name || 'Themify Responz' == $current_th
 				</ul>
 			</div>
 
-			<div class="column">
-				<h4><?php _e( 'Get started on your site', 'uri' ); ?></h4>
+			<div class="column-admin">
+				<h4 class="column-head"><?php _e( 'Get Started', 'uri' ); ?></h4>
 				<ul>
 				<?php if ( 'page' !== get_option( 'show_on_front' ) ) : ?>
 					<li><?php printf( '<a href="%s" class="welcome-icon welcome-get-started" target="_blank">' . __( 'Set up your front page', 'uri' ) . '</a>', 'https://wordpress.com/support/pages/front-page/' ); ?></li>
@@ -82,8 +82,8 @@ if ( 'URI Responsive' == $current_theme_name || 'Themify Responz' == $current_th
 				<li><?php printf( '<a href="%s" class="welcome-icon welcome-view-site">' . __( 'View your site', 'uri' ) . '</a>', home_url( '/' ) ); ?></li>
 			</div>
 
-			<div class="column">
-				<h4><?php _e( 'Using the media library', 'uri' ); ?></h4>
+			<div class="column-admin">
+				<h4 class="column-head"><?php _e( 'Media Library', 'uri' ); ?></h4>
 				<ul>
 					<li><?php printf( '<a href="%s" class="welcome-icon welcome-images">' . __( 'Images', 'uri' ) . '</a>', 'https://www.uri.edu/wordpress/content-guide/images/' ); ?></li>
 					<li><?php printf( '<a href="%s" class="welcome-icon welcome-view-site">' . __( 'Documents', 'uri' ) . '</a>', 'https://www.uri.edu/wordpress/content-guide/documents/' ); ?></li>
@@ -92,8 +92,8 @@ if ( 'URI Responsive' == $current_theme_name || 'Themify Responz' == $current_th
 
 			<?php if ( current_user_can( 'edit_theme_options' ) ): ?>
 				
-			<div class="column">
-				<h4><?php _e( 'Advanced tasks', 'uri' ); ?></h4>
+			<div class="column-admin">
+				<h4 class="column-head"><?php _e( 'Advanced tasks', 'uri' ); ?></h4>
 				<ul>
 				<li class="hide-if-no-customize"><?php printf( '<a href="%s" class="welcome-icon welcome-customize">' . __( 'Customize your site', 'uri' ) . '</a>', admin_url( 'customize.php' ) ); ?></li>
 					<li class="hide-if-no-customize"><?php printf( '<div class="welcome-icon welcome-widgets-menus">' . __( '<a href="%s">Manage menus</a>' ) . '</div>', admin_url( 'nav-menus.php' ) ); ?></li>
