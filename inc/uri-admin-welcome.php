@@ -48,9 +48,9 @@ if ( 'URI Responsive' == $current_theme_name || 'Themify Responz' == $current_th
 
 ?>
 
-<div class="custom-welcome-panel postbox">
+<div class="custom-welcome-panel postbox <?php echo uri_admin_get_season()?>-background">
 
-	<div class="welcome-banner-<?php echo uri_admin_get_season()?>"></div>
+	<div class="welcome-banner <?php echo uri_admin_get_season()?>-banner"></div>
 
 	<div class="welcome-content">
 

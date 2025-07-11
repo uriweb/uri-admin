@@ -192,7 +192,8 @@ function uri_admin_has_admin_privilages()
 function uri_admin_get_season()
 {
 	date_default_timezone_set('UTC');
-	$month = date('m');
+	//$month = date('m');
+	$month = '010';
 
 	$seasons = array(
 		"winter" => ['12', '01', '02'],

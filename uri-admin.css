@@ -1,18 +1,53 @@
 .custom-welcome-panel {
-	background-color: #eef4f9;
+	/*background-color: #eef4f9;*/
 	margin: 2rem 1rem 2rem 0;
 	border-color: #7cbeee;
 }
-.welcome-banner-summer {
+
+.winter-background {
+	background-color: #ffffff;
+}
+
+.spring-background {
+	background-color:#f1f1f6; 
+}
+
+.autumn-background {
+	background-color:#f3f2ee;
+	border-color: #eed77c;
+}
+
+.summer-background {
+	background-color: #f4f5f6;
+}
+.welcome-banner {
 	height: 3rem;
 	width: 100%;
-	background-image: url('img/banner.jpg');
 	background-repeat: no-repeat;
 	background-position: 0 0;
 	background-size: 100% auto;
 }
+
+.summer-banner {
+	background-image: url('img/banner.jpg');
+}
+
+.spring-banner {
+	background-image: url('img/cropped-2019SPRING__dulcineia-dias-195000-unsplash.jpg');
+}
+.autumn-banner {
+	background-image: url('img/autumn-leaves.jpg');
+}
+
+.winter-banner {
+	background-image: url('img/banner-winter.jpg');
+}
 .welcome-content {
 	padding: .5rem 1.5rem 1rem;
+}
+
+.about-description, p {
+	font-size: 16px;
 }
 .welcome-content h3.header {
 	font-size: 2.5rem;
