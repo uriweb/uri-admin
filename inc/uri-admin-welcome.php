@@ -50,36 +50,35 @@ if ( 'URI Responsive' == $current_theme_name || 'Themify Responz' == $current_th
 
 <div class="custom-welcome-panel postbox">
 
-	<div class="welcome-banner"></div>
+	<div class="welcome-banner-<?php echo uri_admin_get_season()?>"></div>
 
 	<div class="welcome-content">
 
 		<h3 class="header"><?php _e( 'Welcome to Wordpress at URI', 'uri' ); ?> </h3>
 
-		<p class="about-description"><?php _e( 'We\'ve assembled some of guides and documentation to help you stay on-brand and deliver clear and useful content to our digital audience. And, we’re here to help when you need it.', 'uri' ); ?></p>
+		<p class="about-description"><?php _e( 'We\'ve assembled some guides and documentation to help you stay on-brand and deliver clear and useful content to our digital audience. And, we’re here to help when you need it.', 'uri' ); ?></p>
 
 		<div class="welcome-cols">
 
 			<div class="column-admin">
-				<h4 class="column-head"><?php _e( 'About', 'uri' ); ?></h4>
+				<h4 class="column-head"><?php _e( 'Start Here', 'uri' ); ?></h4>
 				<ul>
 					<li><?php printf( '<a href="%s" class="welcome-icon welcome-wp-at-uri" target="_blank">' . __( 'About WordPress at URI', 'uri' ) . '</a>', 'https://www.uri.edu/wordpress/' ); ?></li>
 					<li><?php printf( '<a href="%s" class="welcome-icon welcome-content-guide" target="_blank">' . __( 'URI Content Guide', 'uri' ) . '</a>', 'https://www.uri.edu/wordpress/content-guide/' ); ?></li>
-					<li><?php printf( '<a href="%s" class="welcome-icon welcome-components" target="_blank">' . __( 'Component Library', 'uri' ) . '</a>', 'https://www.uri.edu/wordpress/components/' ); ?></li>
 					<li><?php printf( __( '<a href="%s" target="_blank">' . __( 'Get help', 'uri' ) . '</a>' ), 'https://www.uri.edu/wordpress/request/support/?your_site_url=' . urlencode( home_url( '/' ) ) . '&your_email=' . urlencode( wp_get_current_user()->user_email ) ); ?></li>
 				</ul>
 			</div>
 
 			<div class="column-admin">
-				<h4 class="column-head"><?php _e( 'Get Started', 'uri' ); ?></h4>
+				<h4 class="column-head"><?php _e( 'How To', 'uri' ); ?></h4>
 				<ul>
+					<li><?php printf( '<a href="%s" class="welcome-icon welcome-components" target="_blank">' . __( 'Use URI Components', 'uri' ) . '</a>', 'https://www.uri.edu/wordpress/components/' ); ?></li>
 				<?php if ( 'page' !== get_option( 'show_on_front' ) ) : ?>
 					<li><?php printf( '<a href="%s" class="welcome-icon welcome-get-started" target="_blank">' . __( 'Set up your front page', 'uri' ) . '</a>', 'https://wordpress.com/support/pages/front-page/' ); ?></li>
 				<?php else: ?>
 					<li><?php printf( '<a href="%s" class="welcome-icon welcome-edit-page">' . __( 'Edit your front page', 'uri' ) . '</a>', get_edit_post_link( get_option( 'page_on_front' ) ) ); ?></li>
 				<?php endif; ?>
-				<li><?php printf( '<a href="%s" class="welcome-icon welcome-add-page">' . __( 'Add a new page', 'uri' ) . '</a>', admin_url( 'post-new.php?post_type=page' ) ); ?></li>
-				<li><?php printf( '<a href="%s" class="welcome-icon welcome-view-site">' . __( 'View your site', 'uri' ) . '</a>', home_url( '/' ) ); ?></li>
+				<li><?php printf( '<a href="%s" class="welcome-icon welcome-components" target="_blank">' . __( 'Write for the Web', 'uri' ) . '</a>', 'https://www.uri.edu/wordpress/content-guide/writing/' ); ?></li>
 			</div>
 
 			<div class="column-admin">

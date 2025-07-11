@@ -3,7 +3,7 @@
 	margin: 2rem 1rem 2rem 0;
 	border-color: #7cbeee;
 }
-.welcome-banner {
+.welcome-banner-summer {
 	height: 3rem;
 	width: 100%;
 	background-image: url('img/banner.jpg');
@@ -15,7 +15,7 @@
 	padding: .5rem 1.5rem 1rem;
 }
 .welcome-content h3.header {
-	font-size: 3rem;
+	font-size: 2.5rem;
 }
 .welcome-content .about-description {
 	max-width: 800px;
@@ -29,7 +29,7 @@
 }
 
 h4.column-head {
-font-size: 1.5rem;
+font-size: 1.3rem;
 margin-left: .5rem;
 }
 
@@ -37,7 +37,7 @@ margin-left: .5rem;
 	list-style: none;
 }
 
-.column-admin a:link, a:visited {
+.column-admin a:link, .column-admin a:visited {
   background-color: #30557e;
   color: white;
   padding: 14px 25px;
@@ -48,7 +48,7 @@ margin-left: .5rem;
   border-color: white;
   border-radius: 5%;
 }
-.column-admin a:hover, a:active {
+.column-admin a:hover, .column-admin a:active {
   background-color: #002147;
 }
 @media only screen and (min-width: 750px) {
