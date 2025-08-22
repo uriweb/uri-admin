@@ -5,7 +5,7 @@
 }
 
 .winter-background {
-	background-color: #ffffff;
+	background-color: #f4f9fb;
 }
 
 .spring-background {
@@ -18,7 +18,7 @@
 }
 
 .summer-background {
-	background-color: #f4f5f6;
+	background-color: #e9f3fd;
 }
 .welcome-banner {
 	height: 3rem;
@@ -29,7 +29,7 @@
 }
 
 .summer-banner {
-	background-image: url('img/banner.jpg');
+	background-image: url('img/summer.jpg');
 }
 
 .spring-banner {
@@ -47,10 +47,10 @@
 }
 
 .about-description, p {
-	font-size: 16px;
+	font-size: 1rem;
 }
 .welcome-content h3.header {
-	font-size: 2.5rem;
+	font-size: 2rem;
 }
 .welcome-content .about-description {
 	max-width: 800px;
@@ -64,12 +64,39 @@
 }
 
 h4.column-head {
-font-size: 1.3rem;
+font-size: 1.2rem;
 margin-left: .5rem;
 }
 
 .column-admin li {
 	list-style: none;
+}
+
+.support-column {
+	background-color: white;
+	padding: 0 2rem 2rem 2rem;
+	width: 30%;
+	box-shadow: 1.1px 2.2px 2.2px hsl(0deg 0% 0% / 0.47);
+	border: solid .3px darkblue;
+	border-radius: .4rem;
+	margin-top: 2rem;
+}
+.support-column h4 {
+	color: black;
+}
+
+.support-column li {
+	margin: 1rem;
+}
+
+.support-column a:link, .support-column a:visited {
+	background-color: white;
+	color: black;
+	font-size: 1rem;
+}
+
+.support-column a:hover {
+	color: rgb(143, 142, 147);
 }
 
 .column-admin a:link, .column-admin a:visited {
@@ -82,6 +109,8 @@ margin-left: .5rem;
   margin-left: 0;
   border-color: white;
   border-radius: 5%;
+  
+  box-shadow: 1.1px 2.2px 2.2px;
 }
 .column-admin a:hover, .column-admin a:active {
   background-color: #002147;
