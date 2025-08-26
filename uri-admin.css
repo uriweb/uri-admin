@@ -47,7 +47,7 @@
 }
 
 .about-description, p {
-	font-size: 1rem;
+	font-size: .9rem;
 }
 .welcome-content h3.header {
 	font-size: 2rem;
@@ -64,7 +64,7 @@
 }
 
 h4.column-head {
-font-size: 1.2rem;
+font-size: 1.1rem;
 margin-left: .5rem;
 }
 
@@ -80,19 +80,20 @@ margin-left: .5rem;
 	border: solid .3px darkblue;
 	border-radius: .4rem;
 	margin-top: 2rem;
+	margin-bottom: 1rem;
 }
 .support-column h4 {
 	color: black;
 }
 
 .support-column li {
-	margin: 1rem;
+	margin: .9rem;
 }
 
 .support-column a:link, .support-column a:visited {
 	background-color: white;
 	color: black;
-	font-size: 1rem;
+	font-size: .9rem;
 }
 
 .support-column a:hover {
@@ -107,9 +108,10 @@ margin-left: .5rem;
   text-decoration: none;
   display: inline-block;
   margin-left: 0;
+  margin-bottom: .2rem;
   border-color: white;
   border-radius: 5%;
-  
+  font-size: .8rem;
   box-shadow: 1.1px 2.2px 2.2px;
 }
 .column-admin a:hover, .column-admin a:active {
