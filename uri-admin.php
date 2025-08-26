@@ -4,7 +4,7 @@
  * Plugin Name: URI Admin
  * Plugin URI: https://www.uri.edu/wordpress/software/
  * Description: Customizations for the admin dashboard
- * Version: 2.2.2
+ * Version: 2.3.0
  * Author: URI Web Communications
  * Author URI: https://web.uri.edu/external-relations/contact-us/#web
  *
