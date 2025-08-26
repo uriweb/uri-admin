@@ -1,38 +1,128 @@
 .custom-welcome-panel {
-	background-color: #eef4f9;
+	/*background-color: #eef4f9;*/
 	margin: 2rem 1rem 2rem 0;
 	border-color: #7cbeee;
+}
+
+.winter-background {
+	background-color: #f4f9fb;
+}
+
+.spring-background {
+	background-color:#f1f1f6; 
+}
+
+.autumn-background {
+	background-color:#f3f2ee;
+	border-color: #eed77c;
+}
+
+.summer-background {
+	background-color: #e9f3fd;
 }
 .welcome-banner {
 	height: 3rem;
 	width: 100%;
-	background-image: url('img/banner.jpg');
 	background-repeat: no-repeat;
 	background-position: 0 0;
 	background-size: 100% auto;
 }
+
+.summer-banner {
+	background-image: url('img/summer.jpg');
+}
+
+.spring-banner {
+	background-image: url('img/cropped-2019SPRING__dulcineia-dias-195000-unsplash.jpg');
+}
+.autumn-banner {
+	background-image: url('img/autumn-leaves.jpg');
+}
+
+.winter-banner {
+	background-image: url('img/banner-winter.jpg');
+}
 .welcome-content {
 	padding: .5rem 1.5rem 1rem;
 }
-.welcome-content h3.header span {
-	opacity: .7;
+
+.about-description, p {
+	font-size: .9rem;
+}
+.welcome-content h3.header {
+	font-size: 2rem;
 }
 .welcome-content .about-description {
 	max-width: 800px;
 }
-.welcome-cols .column {
+.welcome-cols .column-admin {
 	margin-bottom: 1rem;
 }
 .custom-welcome-panel li {
 	list-style-type: disc;
 	margin-left: 1rem;
 }
+
+h4.column-head {
+font-size: 1.1rem;
+margin-left: .5rem;
+}
+
+.column-admin li {
+	list-style: none;
+}
+
+.support-column {
+	background-color: white;
+	padding: 0 2rem 2rem 2rem;
+	width: 30%;
+	box-shadow: 1.1px 2.2px 2.2px hsl(0deg 0% 0% / 0.47);
+	border: solid .3px darkblue;
+	border-radius: .4rem;
+	margin-top: 2rem;
+	margin-bottom: 1rem;
+}
+.support-column h4 {
+	color: black;
+}
+
+.support-column li {
+	margin: .9rem;
+}
+
+.support-column a:link, .support-column a:visited {
+	background-color: white;
+	color: black;
+	font-size: .9rem;
+}
+
+.support-column a:hover {
+	color: rgb(143, 142, 147);
+}
+
+.column-admin a:link, .column-admin a:visited {
+  background-color: #30557e;
+  color: white;
+  padding: 14px 25px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  margin-left: 0;
+  margin-bottom: .2rem;
+  border-color: white;
+  border-radius: 5%;
+  font-size: .8rem;
+  box-shadow: 1.1px 2.2px 2.2px;
+}
+.column-admin a:hover, .column-admin a:active {
+  background-color: #002147;
+}
 @media only screen and (min-width: 750px) {
 	.welcome-cols {
 		display: flex;
 		flex-direction: row;
 	}
-	.welcome-cols .column {
+	.welcome-cols .column-admin {
 		flex: 1;
 		margin-bottom: 0;
 		margin-right: 1%;
