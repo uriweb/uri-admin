@@ -99,8 +99,8 @@ if ( 'URI Responsive' == $current_theme_name || 'Themify Responz' == $current_th
 		<hr>
 
 		<div class="disclaimer">
-			<p>URI's web presence is directed by <a href="https://web.uri.edu/external-relations/contact-us/">Communications and Marketing</a>.</p>
-			<p>Get in touch with the Web Communications team by <?php printf( __( '<a href="%s" target="_blank">' . __( 'requesting support', 'uri' ) . '</a>' ), 'https://www.uri.edu/wordpress/request/support/' ); ?> or emailing <a href="mailto:web-group@uri.edu">web-group@uri.edu</a>.</p>
+			<p>URI's web presence is directed by the <a href="https://web.uri.edu/external-relations/contact-us/">Division of External Relations and Communications</a>.</p>
+			<p>Get in touch with the Digital Strategy team by <?php printf( __( '<a href="%s" target="_blank">' . __( 'requesting support', 'uri' ) . '</a>' ), 'https://www.uri.edu/wordpress/request/support/' ); ?> or emailing general questions to <a href="mailto:web-group@uri.edu">web-group@uri.edu</a>.</p>
 		</div>
 
 	</div><!-- .welcome-content -->
